@@ -1,6 +1,13 @@
 <?php
+session_start();
 include(__DIR__ . "/templates/header.php");
 include(__DIR__ . "/templates/navbar.php");
+
+if (!isset($_SESSION["login"])) {
+  header("Location:signin.php");
+  exit();
+}
+
 ?>
 
 <main>
@@ -135,6 +142,8 @@ include(__DIR__ . "/templates/navbar.php");
       </div>
     </div>
   </section>
+
+  <!-- Testimonials -->
   <?php
   $testimonials = [
     [
@@ -146,14 +155,14 @@ include(__DIR__ . "/templates/navbar.php");
     ],
     [
       'foto' => 'assets/client-2.png',
-      'nama' => 'Budi Santoso',
+      'nama' => 'Citra Lestari',
       'jabatan' => 'CEO, Startup Maju',
       'testimoni' => 'Layanan yang sangat profesional. Hikari Travel mengatur perjalanan bisnis saya dengan sempurna. Sangat direkomendasikan.',
       'rating' => 5
     ],
     [
       'foto' => 'assets/client-3.png',
-      'nama' => 'Citra Lestari',
+      'nama' => 'Budi Santoso',
       'jabatan' => 'Fotografer',
       'testimoni' => 'Sebagai fotografer, saya mendapatkan spot-spot terbaik berkat itinerary kustom dari tim Hikari. Hasil fotonya luar biasa!',
       'rating' => 5
@@ -194,7 +203,68 @@ include(__DIR__ . "/templates/navbar.php");
       </div>
     </div>
   </section>
+  <!-- End Testimonials -->
+
+  <!-- Contact -->
+  <section class="contact py-5 bg-light" id="contact">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-6">
+          <h2 class="display-6 fw-bold font-poppins">We're here to help</h2>
+          <p class="font-montserrat text-secondary mb-4">Our dedicated team is ready to support you.</p>
+
+          <form>
+            <div class="row">
+              <div class="col-6 mb-3">
+                <label for="firstName" class="form-label small">First name</label>
+                <input type="text" class="form-control" id="firstName">
+              </div>
+              <div class="col-6 mb-3">
+                <label for="lastName" class="form-label small">Last name</label>
+                <input type="text" class="form-control" id="lastName">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label small">Email</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+              <label for="topic" class="form-label small">Choose a topic</label>
+              <select class="form-select" id="topic">
+                <option selected>Select from list</option>
+                <option value="1">Paket Wisata</option>
+                <option value="2">Itinerary Kustom</option>
+                <option value="3">Lainnya</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label small">Message <span class="text-muted">(optional)</span></label>
+              <textarea class="form-control" id="message" rows="4"></textarea>
+            </div>
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" value="" id="privacyCheck">
+              <label class="form-check-label small" for="privacyCheck">
+                By checking this, you agree to our privacy policy.
+              </label>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg">Send message</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-6">
+          <div class="contact-image-container rounded shadow-lg">
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- End Contact -->
 </main>
+
 
 <?php
 include(__DIR__ . "/templates/footer.php");

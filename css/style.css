@@ -228,6 +228,7 @@ body {
 
 /* End About */
 
+/* Login Page */
 .login-page {
   background: url(../assets/login-bg.jpg) no-repeat center center;
   background-size: cover;
@@ -255,3 +256,40 @@ body {
 .login-page .form-control {
   padding: 0.75rem 1rem;
 }
+/* End Login Page */
+
+/* Contact */
+.contact-image-container {
+  background: url("assets/contact-bg.jpg") no-repeat center;
+  background-size: cover;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+/* End Contact */
+
+/* Footer */
+.footer {
+  background-color: var(--color-primary); /* Warna biru gelap dari tema Anda */
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-link:hover {
+  color: var(--color-accent); /* Warna emas saat di-hover */
+}
+
+.footer hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* End Footer */
+/* End Footer */
