@@ -18,6 +18,18 @@ body {
   --color-white: #ffffff;
 }
 
+.bold {
+  font-weight: 600;
+}
+
+.title-text {
+  font-size: 40px;
+}
+
+.par-text {
+  font-size: 18px;
+}
+
 .font-poppins {
   font-family: "Poppins";
 }
@@ -28,15 +40,19 @@ body {
 
 .font-montserrat {
   font-family: "Montserrat";
-  font-size: 16px;
   font-weight: 500;
 }
 
 /* Navbar */
 .navbar {
-  background-color: var(--color-primary);
+  background-color: transparent !important;
+  transition: background-color 0.4s ease-in-out;
 }
 
+.navbar.navbar-scrolled {
+  background-color: var(--color-primary) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .navbar .nav-link {
   color: var(--color-white);
   font-weight: 500;
@@ -47,8 +63,13 @@ body {
   width: auto;
   object-fit: contain;
 }
-
 /* End Navbar */
+
+.hero {
+  background: url(../assets/hero.jpg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+}
 .hero::before {
   background-color: rgba(0, 0, 0, 0.6);
   content: "";
@@ -67,8 +88,8 @@ body {
   text-align: center;
 }
 
-.hero {
-  background: url(assets/hero.jpg) no-repeat center;
-  background-size: cover;
-  width: 100%;
+/* Profile */
+.profile .container {
+  height: 100vh;
 }
+/* End Profile */

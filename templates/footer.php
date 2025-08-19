@@ -9,7 +9,17 @@
 <script>
   AOS.init();
 </script>
+<script>
+  const nav = document.querySelector('.navbar');
 
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 50) {
+      nav.classList.add('navbar-scrolled');
+    } else {
+      nav.classList.remove('navbar-scrolled');
+    }
+  });
+</script>
 </body>
 
 </html>
