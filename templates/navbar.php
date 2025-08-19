@@ -1,10 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top font-montserrat">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="assets/logo.png" alt="HIKARI LOGO"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
     <div class="collapse navbar-collapse " id="navbarNavDropdown">
       <ul class="navbar-nav justify-content-center flex-grow-1 par-text">
         <li class="nav-item">
@@ -29,7 +26,11 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li> -->
+
+        <!-- Login -->
       </ul>
     </div>
+
+    <a class="navbar-brand text-decoration-none font-montserrat text-white" href="login.php">Sign In</a>
   </div>
 </nav>

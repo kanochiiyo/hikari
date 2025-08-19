@@ -89,7 +89,68 @@ body {
 }
 
 /* Profile */
-.profile .container {
+.profile .container-fluid {
   height: 100vh;
 }
 /* End Profile */
+.products .container-fluid {
+  height: 100vh;
+}
+
+/* Products */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Penting untuk gambar */
+}
+
+.product-card:hover {
+  transform: translateY(-10px); /* Efek kartu terangkat saat di-hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.product-card .card-img-top {
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .card-img-top {
+  transform: scale(1.05); /* Efek zoom pada gambar saat kartu di-hover */
+}
+
+.product-card-img-container {
+  position: relative;
+}
+
+.product-card-rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.product-card-rating .fa-star {
+  color: #ffc107; 
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+/* End Products */
+
+/* Login */
+.login .container-fluid {
+  background-color: var(--color-primary);
+  height: 100vh;
+}
+/* End Login */
