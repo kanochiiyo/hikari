@@ -1,0 +1,74 @@
+/* Global */
+*,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--color-background) !important;
+}
+
+:root {
+  --color-primary: #1a374d;
+  --color-accent: #e5b84b;
+  --color-background: #ffffff;
+  --color-text: #333333;
+  --color-background-darker: #f8f9fa;
+  --color-white: #ffffff;
+}
+
+.font-poppins {
+  font-family: "Poppins";
+}
+
+.font-inter {
+  font-family: "Inter";
+}
+
+.font-montserrat {
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--color-primary);
+}
+
+.navbar .nav-link {
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* End Navbar */
+.hero::before {
+  background-color: rgba(0, 0, 0, 0.6);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hero .container {
+  height: 100vh;
+  z-index: 1;
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+.hero {
+  background: url(assets/hero.jpg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+}
