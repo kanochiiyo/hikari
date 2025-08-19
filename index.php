@@ -100,12 +100,11 @@ include(__DIR__ . "/templates/navbar.php");
           <div class="col-md-6 col-lg-4">
             <div class="card product-card h-100 shadow-sm border-0">
               <div class="product-card-img-container">
-                <img src="<?= $pkg['gambar'] ?>" class="card-img-top"
-                  alt="<?= $pkg['judul'] ?>">
+                <img src="<?= $pkg['gambar'] ?>" class="card-img-top" alt="<?= $pkg['judul'] ?>">
                 <div class="product-card-rating">
                   <i class="fa fa-star"></i> <?= $pkg['rating'] ?>
                 </div>
-              </div>  
+              </div>
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title font-poppins fw-bold"><?= $pkg['judul'] ?></h5>
                 <p class="card-text font-montserrat text-secondary small mb-3">
@@ -125,10 +124,43 @@ include(__DIR__ . "/templates/navbar.php");
 
     </div>
   </section>
-
   <!-- End Products -->
 
   <!-- Gallery  -->
+  <section class="gallery-grid py-5" id="gallery-grid">
+    <div class="container">
+      <div class="col text-center mb-4">
+        <h2 class="display-6 fw-bold font-poppins">Our Gallery</h2>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-3">
+          <img src="assets/yamanashi.jpg" alt="Gallery Image 1" class="img-fluid gallery-grid-img">
+        </div>
+        <div class="col-md-3">
+          <img src="assets/kyoto.jpg" alt="Gallery Image 2" class="img-fluid gallery-grid-img">
+        </div>
+        <div class="col-md-3">
+          <img src="assets/osaka.png" alt="Gallery Image 3" class="img-fluid gallery-grid-img">
+        </div>
+        <div class="col-md-3">
+          <img src="assets/sapporo.png" alt="Gallery Image 4" class="img-fluid gallery-grid-img">
+        </div>
+        <div class="col-md-3">
+          <img src="assets/package-1.png" alt="Gallery Image 5" class="img-fluid gallery-grid-img">
+        </div>
+        <div class="col-md-3">
+          <img src="assets/package-2.png" alt="Gallery Image 6" class="img-fluid gallery-grid-img">
+        </div>
+        <div class="col-md-3">
+          <img src="assets/package-3.png" alt="Gallery Image 7" class="img-fluid gallery-grid-img">
+        </div>
+        <div class="col-md-3">
+          <img src="assets/package-4.png" alt="Gallery Image 8" class="img-fluid gallery-grid-img">
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- End Gallery -->
 
   <!-- Client Testimonial -->
