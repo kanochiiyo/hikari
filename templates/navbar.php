@@ -1,33 +1,30 @@
-<nav class="navbar navbar-expand-lg fixed-top font-montserrat">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="assets/logo.png" alt="HIKARI LOGO"></a>
+<?php
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
+<nav class="navbar navbar-expand-lg fixed-top font-montserrat 
+  <?php if ($currentPage !== 'index.php')
+    echo 'navbar-solid'; ?>">
 
-    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.php"><img src="assets/logo.png" alt="HIKARI LOGO"></a>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav justify-content-center flex-grow-1 par-text">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Profil</a>
+          <a class="nav-link <?php if ($currentPage === 'index.php')
+            echo 'active'; ?>" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Produk</a>
+          <a class="nav-link <?php if ($currentPage === 'about.php')
+            echo 'active'; ?>" href="about.php">Tentang
+            Kami</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Kontak</a>
+          <a class="nav-link" href="index.php#products">Produk</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Tentang Kami</a>
+          <a class="nav-link" href="index.php#contact">Kontak</a>
         </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li> -->
-
-        <!-- Login -->
       </ul>
     </div>
 

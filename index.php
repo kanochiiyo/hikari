@@ -4,7 +4,6 @@ include(__DIR__ . "/templates/navbar.php");
 ?>
 
 <main>
-  <!-- Hero -->
   <section class="hero" id="hero">
     <div class="container d-flex flex-column justify-content-center text-start text-white">
       <h5 class="font-montserrat">HIKARI TRAVEL</h5>
@@ -12,59 +11,44 @@ include(__DIR__ . "/templates/navbar.php");
       <h3 class="lead font-montserrat">Jelajahi keindahan otentik, dari kota modern hingga kuil kuno bersama kami.</h3>
     </div>
   </section>
-  <!-- End Hero -->
-
-  <!-- Profile -->
   <section class="profile" id="profile">
     <div class="container-fluid p-5">
       <div class="row g-4">
-
-        <!-- Col 1+2: Gallery gabung jadi 6 kolom -->
-        <div class="col-md-6 d-flex">
-          <!-- Bagian kiri: kotak kecil -->
+        <div class="col-6 d-flex">
           <div class="d-flex flex-column me-3" style="flex: 1;">
-            <div class="bg-secondary mb-3" style="height:180px;"></div>
-            <div class="bg-secondary mb-3" style="height:180px;"></div>
+            <div class="bg-secondary mb-3 rounded" style="height:180px;"></div>
+            <div class="bg-secondary mb-3 rounded" style="height:180px;"></div>
             <div class="d-flex justify-content-between">
-              <div class="bg-secondary" style="height:180px; width:48%;"></div>
-              <div class="bg-secondary" style="height:180px; width:48%;"></div>
+              <div class="bg-secondary rounded" style="height:180px; width:48%;"></div>
+              <div class="bg-secondary rounded" style="height:180px; width:48%;"></div>
             </div>
           </div>
-          <!-- Bagian kanan: kotak tinggi -->
-          <div class="bg-secondary" style="flex: 1; height:580px;"></div>
+          <div class="bg-secondary rounded" style="flex: 1; height:580px;"></div>
         </div>
 
-        <!-- Col 3: Teks -->
-        <div class="col-md-6 d-flex align-items-center">
-          <div class="ps-md-5">
-            <h6 class="font-montserrat fw-semibold mb-2" style="color: #e5b84b">About Coder →</h6>
+        <div class="col-6 d-flex align-items-center">
+          <div class="ps-5">
+            <h6 class="font-montserrat fw-semibold mb-2" style="color: #e5b84b">TENTANG KAMI →</h6>
             <h2 class="display-4 fw-bold font-poppins mb-3">
-              Most Trusted <br>
-              <span class="text-dark">Japanese Travel Agent</span>
+              Merancang Perjalanan, <br>
+              <span class="text-dark">Bukan Sekadar Liburan</span>
             </h2>
             <p class="font-montserrat text-secondary mb-4">
-              Kami adalah penyedia layanan tour Jepang yang menghadirkan pengalaman
-              liburan tak terlupakan dengan paket wisata tematik, pemandu profesional,
-              dan mitra lokal terpercaya. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Lorem ipsum dolor sit amet consectetur.
+              Di Hikari Travel, kami percaya setiap perjalanan ke Jepang adalah sebuah cerita personal. Kami hadir untuk
+              membantu Anda merangkai setiap babnya, dari menemukan kuliner tersembunyi hingga merasakan ketenangan kuil
+              kuno.
             </p>
-            <a href="#contact" class="btn btn-danger btn-lg px-4">Read more</a>
+            <a href="#contact" class="btn btn-dark btn-lg px-4">Selengkapnya</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
-  <!-- add kelebihan, pengalaman angka counter -->
-  <!-- End Profile -->
-
-  <!-- Products -->
   <section class="products py-5 bg-light" id="products">
     <div class="container">
       <div class="row mb-4 text-center">
         <div class="col">
-          <h5 class="font-montserrat text-primary fw-semibold">PAKET TOUR</h5>
+          <h5 class="font-montserrat text-sec fw-semibold">PAKET TOUR</h5>
           <h2 class="display-6 fw-bold font-poppins">Pilih Petualangan Anda Berikutnya</h2>
         </div>
       </div>
@@ -97,7 +81,7 @@ include(__DIR__ . "/templates/navbar.php");
 
       <div class="row g-4">
         <?php foreach ($packages as $pkg): ?>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-4">
             <div class="card product-card h-100 shadow-sm border-0">
               <div class="product-card-img-container">
                 <img src="<?= $pkg['gambar'] ?>" class="card-img-top" alt="<?= $pkg['judul'] ?>">
@@ -111,7 +95,7 @@ include(__DIR__ . "/templates/navbar.php");
                   <i class="fa fa-clock me-1"></i> <?= $pkg['durasi'] ?>
                 </p>
                 <div class="mt-auto d-flex justify-content-between align-items-center">
-                  <p class="mb-0 font-poppins fw-bold fs-5 text-primary">
+                  <p class="mb-0 font-poppins fw-bold fs-5 text-sec">
                     Rp <?= number_format($pkg['harga'], 0, ',', '.') ?>
                   </p>
                   <a href="#" class="btn btn-primary">Lihat Detail</a>
@@ -121,55 +105,96 @@ include(__DIR__ . "/templates/navbar.php");
           </div>
         <?php endforeach; ?>
       </div>
-
     </div>
   </section>
-  <!-- End Products -->
-
-  <!-- Gallery  -->
+  <?php
+  $gallery = [
+    ["gambar" => "assets/yamanashi.jpg", "alt" => "Pemandangan Gunung Fuji"],
+    ["gambar" => "assets/kyoto.jpg", "alt" => "Jalanan di Kyoto"],
+    ["gambar" => "assets/osaka.png", "alt" => "Dotonbori Osaka"],
+    ["gambar" => "assets/sapporo.png", "alt" => "Salju di Sapporo"],
+    ["gambar" => "assets/package-1.png", "alt" => "Ski di Jepang"],
+    ["gambar" => "assets/package-2.png", "alt" => "Camping di Gunung Fuji"],
+    ["gambar" => "assets/package-3.png", "alt" => "Fushimi Inari Kyoto"],
+    ["gambar" => "assets/package-4.png", "alt" => "Hutan Bambu Arashiyama"]
+  ];
+  ?>
   <section class="gallery-grid py-5" id="gallery-grid">
     <div class="container">
-      <div class="col text-center mb-4">
-        <h2 class="display-6 fw-bold font-poppins">Our Gallery</h2>
+      <div class="row mb-4 text-center">
+        <div class="col">
+          <h2 class="display-6 fw-bold font-poppins">Galeri Perjalanan</h2>
+        </div>
       </div>
-
       <div class="row g-3">
-        <div class="col-md-3">
-          <img src="assets/yamanashi.jpg" alt="Gallery Image 1" class="img-fluid gallery-grid-img">
-        </div>
-        <div class="col-md-3">
-          <img src="assets/kyoto.jpg" alt="Gallery Image 2" class="img-fluid gallery-grid-img">
-        </div>
-        <div class="col-md-3">
-          <img src="assets/osaka.png" alt="Gallery Image 3" class="img-fluid gallery-grid-img">
-        </div>
-        <div class="col-md-3">
-          <img src="assets/sapporo.png" alt="Gallery Image 4" class="img-fluid gallery-grid-img">
-        </div>
-        <div class="col-md-3">
-          <img src="assets/package-1.png" alt="Gallery Image 5" class="img-fluid gallery-grid-img">
-        </div>
-        <div class="col-md-3">
-          <img src="assets/package-2.png" alt="Gallery Image 6" class="img-fluid gallery-grid-img">
-        </div>
-        <div class="col-md-3">
-          <img src="assets/package-3.png" alt="Gallery Image 7" class="img-fluid gallery-grid-img">
-        </div>
-        <div class="col-md-3">
-          <img src="assets/package-4.png" alt="Gallery Image 8" class="img-fluid gallery-grid-img">
-        </div>
+        <?php foreach ($gallery as $img): ?>
+          <div class="col-3">
+            <img src="<?= $img['gambar'] ?>" alt="<?= $img['alt'] ?>" class="img-fluid gallery-grid-img rounded">
+          </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
-  <!-- End Gallery -->
+  <?php
+  $testimonials = [
+    [
+      'foto' => 'assets/client-1.png',
+      'nama' => 'Sophia Kartika',
+      'jabatan' => 'Travel Enthusiast',
+      'testimoni' => 'Pengalaman paling tak terlupakan! Pemandu lokalnya sangat ramah dan membuat perjalanan saya ke Kyoto sangat berkesan.',
+      'rating' => 5
+    ],
+    [
+      'foto' => 'assets/client-2.png',
+      'nama' => 'Budi Santoso',
+      'jabatan' => 'CEO, Startup Maju',
+      'testimoni' => 'Layanan yang sangat profesional. Hikari Travel mengatur perjalanan bisnis saya dengan sempurna. Sangat direkomendasikan.',
+      'rating' => 5
+    ],
+    [
+      'foto' => 'assets/client-3.png',
+      'nama' => 'Citra Lestari',
+      'jabatan' => 'Fotografer',
+      'testimoni' => 'Sebagai fotografer, saya mendapatkan spot-spot terbaik berkat itinerary kustom dari tim Hikari. Hasil fotonya luar biasa!',
+      'rating' => 5
+    ]
+  ];
+  ?>
 
-  <!-- Client Testimonial -->
-  <!-- End Client Testimonial -->
+  <section class="testimonials py-5" id="testimonials">
+    <div class="container">
+      <div class="row mb-5 text-center">
+        <div class="col">
+          <h5 class="font-montserrat text-sec fw-semibold">TESTIMONI</h5>
+          <h2 class="display-6 fw-bold font-poppins">Apa Kata Klien Kami</h2>
+        </div>
+      </div>
 
-  <!-- Contact -->
-  <!-- End Contact -->
+      <div class="row g-4">
+        <?php foreach ($testimonials as $testimonial): ?>
+          <div class="col-4">
+            <div class="card testimonial-card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <img src="<?= $testimonial['foto'] ?>" alt="Foto <?= $testimonial['nama'] ?>"
+                  class="testimonial-img rounded-circle shadow-sm">
+                <h5 class="card-title font-poppins fw-bold mt-4"><?= $testimonial['nama'] ?></h5>
+                <p class="text-muted small mb-3"><?= $testimonial['jabatan'] ?></p>
+                <p class="testimonial-text font-montserrat fst-italic text-secondary">
+                  "<?= $testimonial['testimoni'] ?>"
+                </p>
+                <div class="rating-stars">
+                  <?php for ($i = 0; $i < $testimonial['rating']; $i++): ?>
+                    <i class="fa fa-star"></i>
+                  <?php endfor; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
 </main>
-
 
 <?php
 include(__DIR__ . "/templates/footer.php");
