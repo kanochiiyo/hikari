@@ -1,18 +1,15 @@
 <?php
 function getConnection()
 {
-  $conn = null;
-  $host = "localhost"; 
+  $host = "localhost";
   $user = "root";
   $pass = "";
-  $db = "hope";
+  $db = "hikari";
 
-  try {
-    $conn = new mysqli($host, $user, $pass, $db);
-  } catch (Exception $e) {
-    die('Maaf koneksi gagal: ' . $e->getMessage());
+  $mysql = mysqli_connect($host, $user, $pass, $db);
+  if (!$mysql) {
+    die("Tidak bisa terhubung dengan database.");
   }
-
-  return $conn;
+  return $mysql;
 }
 ?>

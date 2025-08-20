@@ -2,9 +2,10 @@
 session_start();
 include(__DIR__ . "/templates/header.php");
 include(__DIR__ . "/templates/navbar.php");
+require_once(__DIR__ . "/functions.authentication.php");
 
-if (!isset($_SESSION["login"])) {
-  header("Location:signin.php");
+if (isLogged()) {
+  header("Location:login.php");
   exit();
 }
 
@@ -114,6 +115,8 @@ if (!isset($_SESSION["login"])) {
       </div>
     </div>
   </section>
+
+  
   <?php
   $gallery = [
     ["gambar" => "assets/yamanashi.jpg", "alt" => "Pemandangan Gunung Fuji"],
@@ -255,7 +258,7 @@ if (!isset($_SESSION["login"])) {
 
         <div class="col-6">
           <div class="contact-image-container rounded shadow-lg">
-            
+
           </div>
         </div>
 

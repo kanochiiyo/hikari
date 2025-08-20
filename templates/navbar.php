@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . "/functions.authentication.php");
 $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 <nav class="navbar navbar-expand-lg fixed-top font-montserrat 
@@ -27,7 +28,10 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         </li>
       </ul>
     </div>
-
-    <a class="navbar-brand text-decoration-none font-montserrat text-white" href="login.php">Sign In</a>
+    <?php if (isLogged()) { ?>
+      <a class="navbar-brand text-decoration-none font-montserrat text-white" href="logout.php">Logout</a>
+    <?php } else { ?>
+      <a class="navbar-brand text-decoration-none font-montserrat text-white" href="login.php">Login</a>
+    <?php } ?>
   </div>
 </nav>
