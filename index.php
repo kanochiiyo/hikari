@@ -146,7 +146,37 @@ require_once(__DIR__ . "/functions/authentication.php");
         </div>
       </div>
       <?php if (isLogged()) { ?>
-        <button type="submit" class="btn btn-primary my-3" data-aos="fade-up" data-aos-delay="100">Unggah Gambar</button>
+        <button class="btn btn-primary my-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUpload"
+          aria-expanded="false" aria-controls="collapseUpload" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-upload me-2"></i>Unggah Gambar
+        </button>
+
+        <div class="collapse" id="collapseUpload">
+          <div class="card card-body border-2 shadow-sm mb-4 font-inter">
+            <h5 class="card-title mb-3">Form Unggah Gambar Baru</h5>
+
+            <form action="upload.php" method="POST" enctype="multipart/form-data">
+
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Pilih file gambar</label>
+                <input class="form-control" type="file" id="formFile" name="gambar" required>
+                <div class="form-text">
+                  Hanya format JPG, PNG, atau GIF yang diizinkan. Ukuran maks 1MB.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="altText" class="form-label">Deskripsi Gambar (Alt Text)</label>
+                <input type="text" class="form-control" id="altText" name="alt"
+                  placeholder="Contoh: Pemandangan matahari terbenam di pantai" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-check me-2"></i>Kirim Gambar
+              </button>
+            </form>
+          </div>
+        </div>
       <?php } ?>
       <div class="row g-3">
         <?php foreach ($gallery as $index => $img): ?>
@@ -265,7 +295,11 @@ require_once(__DIR__ . "/functions/authentication.php");
         </div>
 
         <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-          <div class="contact-image-container rounded shadow-lg">
+          <div class="map-container rounded shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d988.267704714557!2d110.41549671184765!3d-7.782316246821574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59909f987bff%3A0xf431a4c4717e7fcf!2sFakultas%20Teknik%20Industri!5e0!3m2!1sid!2sid!4v1755687635317!5m2!1sid!2sid"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
 

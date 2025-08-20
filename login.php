@@ -33,13 +33,14 @@ if (isset($_POST["submit"])) {
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="••••••••">
           </div>
-          <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="d-flex justify-content-between align-items-center">
             <!-- <div class="form-check">
               <input type="checkbox" class="form-check-input" id="rememberMe">
               <label class="form-check-label" for="rememberMe">Remember me</label>
             </div> -->
             <!-- <a href="#" class="small text-decoration-none">Forgot Password?</a> -->
           </div>
+          <p class="text-muted text-center mb-4">Don't have an account? Sign up <a href="register.php">here</a></p>
           <div class="d-grid">
             <button type="submit" name="submit" class="btn btn-primary btn-lg">Sign In</button>
           </div>

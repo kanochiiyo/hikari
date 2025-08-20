@@ -13,33 +13,30 @@ function register($formData)
 {
   $connection = getConnection();
 
-  //   $name = $formData["name"];
   $username = strtolower(stripslashes($formData["username"]));
   $email = strtolower($formData["email"]);
   $password = mysqli_real_escape_string($connection, $formData["password"]);
-  $confirmpassword = mysqli_real_escape_string($connection, $formData["confirmpassword"]);
+  $confirmpassword = mysqli_real_escape_string($connection, $formData["password2"]);
 
-  // cek udah ada yg make belom usernamenya
   $result = $connection->query("SELECT username FROM users WHERE username = '$username'");
   if ($result->fetch_assoc()) {
+
     echo "<script>
-    alert('Login gagal. Username tidak tersedia.');
+    alert('Registrasi gagal. Username tidak tersedia.');
     </script>";
     return false;
   }
 
-  // kalo password & confirm nggak sama
   if ($password != $confirmpassword) {
     echo "<script>
-    alert('Login gagal. Password salah!');
+    alert('Registrasi gagal. Konfirmasi password tidak cocok!');
     </script>";
     return false;
   }
 
-  // enkripsi password pake password hash
   $password = password_hash($password, PASSWORD_DEFAULT);
 
-  $connection->query("INSERT INTO users VALUES (null, '$username', '$email', '$password', 0)");
+  $connection->query("INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')");
 
   return ($connection->affected_rows) ? true : false;
 }
@@ -55,12 +52,14 @@ function login($data)
   if (mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
 
-    if ($row["password"] == $password) {
+
+    if (password_verify($password, $row["password"])) {
       $_SESSION["login"] = true;
       $_SESSION["user"] = $username;
       return true;
     }
   }
+
   return false;
 }
 
