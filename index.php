@@ -7,16 +7,16 @@ require_once(__DIR__ . "/functions/authentication.php");
 ?>
 
 <main>
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" data-aos="fade-right">
     <div class="container d-flex flex-column justify-content-center text-start text-white">
       <h5 class="font-montserrat">HIKARI TRAVEL</h5>
       <h1 class="headline display-4 fw-bold font-poppins">Temukan Cahaya Baru di Jepang</h1>
       <h3 class="lead font-montserrat">Jelajahi keindahan otentik, dari kota modern hingga kuil kuno bersama kami.</h3>
     </div>
   </section>
-  <section class="profile" id="profile">
+  <section class="profile" id="profile" data-aos="fade-left">
     <div class="container-fluid p-5">
-      <div class="row g-4">
+      <div class="row g-4 m-5">
         <div class="col-6 d-flex">
           <div class="d-flex flex-column me-3" style="flex: 1;">
             <div class="bg-secondary mb-3 rounded" style="height:180px;"></div>
@@ -47,7 +47,7 @@ require_once(__DIR__ . "/functions/authentication.php");
       </div>
     </div>
   </section>
-  <section class="products py-5 bg-light" id="products">
+  <section class="products bg-light" id="products" data-aos="fade-right">
     <div class="container">
       <div class="row mb-4 text-center">
         <div class="col">
@@ -124,7 +124,7 @@ require_once(__DIR__ . "/functions/authentication.php");
     ["gambar" => "assets/package-4.png", "alt" => "Hutan Bambu Arashiyama"]
   ];
   ?>
-  <section class="gallery-grid py-5" id="gallery-grid">
+  <section class="gallery-grid py-5" id="gallery-grid" data-aos="fade-left">
     <div class="container">
       <div class="row mb-4 text-center">
         <div class="col">
@@ -171,7 +171,7 @@ require_once(__DIR__ . "/functions/authentication.php");
   ];
   ?>
 
-  <section class="testimonials py-5" id="testimonials">
+  <section class="testimonials py-5" id="testimonials" data-aos="fade-up">
     <div class="container">
       <div class="row mb-5 text-center">
         <div class="col">
@@ -207,7 +207,7 @@ require_once(__DIR__ . "/functions/authentication.php");
   <!-- End Testimonials -->
 
   <!-- Contact -->
-  <section class="contact py-5 bg-light" id="contact">
+  <section class="contact py-5 bg-light" id="contact" data-aos="fade-up">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-6">
@@ -218,20 +218,20 @@ require_once(__DIR__ . "/functions/authentication.php");
             <div class="row">
               <div class="col-6 mb-3">
                 <label for="firstName" class="form-label small">First name</label>
-                <input type="text" class="form-control" id="firstName">
+                <input type="text" class="form-control" id="firstName" data-aos="fade-up">
               </div>
               <div class="col-6 mb-3">
                 <label for="lastName" class="form-label small">Last name</label>
-                <input type="text" class="form-control" id="lastName">
+                <input type="text" class="form-control" id="lastName" data-aos="fade-up">
               </div>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label small">Email</label>
-              <input type="email" class="form-control" id="email">
+              <input type="email" class="form-control" id="email" data-aos="fade-up">
             </div>
             <div class="mb-3">
               <label for="topic" class="form-label small">Choose a topic</label>
-              <select class="form-select" id="topic">
+              <select class="form-select" id="topic" data-aos="fade-up">
                 <option selected>Select from list</option>
                 <option value="1">Paket Wisata</option>
                 <option value="2">Itinerary Kustom</option>
@@ -240,10 +240,10 @@ require_once(__DIR__ . "/functions/authentication.php");
             </div>
             <div class="mb-3">
               <label for="message" class="form-label small">Message <span class="text-muted">(optional)</span></label>
-              <textarea class="form-control" id="message" rows="4"></textarea>
+              <textarea class="form-control" id="message" rows="4"></textarea data-aos="fade-up">
             </div>
             <div class="form-check mb-4">
-              <input class="form-check-input" type="checkbox" value="" id="privacyCheck">
+              <input class="form-check-input" type="checkbox" value="" id="privacyCheck" data-aos="fade-up">
               <label class="form-check-label small" for="privacyCheck">
                 By checking this, you agree to our privacy policy.
               </label>

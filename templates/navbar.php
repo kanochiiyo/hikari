@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . "/../functions/authentication.php");
+require_once(__DIR__ . "/../functions/connection.php");
 $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 <nav class="navbar navbar-expand-lg fixed-top font-montserrat 
@@ -31,13 +32,14 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             Artikel
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="artikel.php?kategori=destinasi">Destinasi Populer</a></li>
-            <li><a class="dropdown-item" href="artikel.php?kategori=tips">Tips Traveling</a></li>
-            <li><a class="dropdown-item" href="artikel.php?kategori=kuliner">Kuliner Jepang</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="artikel.php">Lihat Semua Artikel</a></li>
+            <?php
+            $mysql = getConnection();
+            $data = mysqli_query($mysql, "SELECT * FROM articles");
+            while ($row = mysqli_fetch_assoc($data)) {
+              ?>
+              <li><a class="dropdown-item" href="article.php?id=<?= $row["id"] ?>"><?= $row["judul"] ?></a></li>
+            <?php }
+            ?>
           </ul>
         </li>
       </ul>

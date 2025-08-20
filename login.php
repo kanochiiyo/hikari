@@ -10,6 +10,9 @@ if (isset($_POST["submit"])) {
   if ($result) {
     header("Location:index.php");
   }
+
+  $messageError = 'Login gagal. Username/password salah.';
+  echo "<script>alert('" . addslashes($messageError) . "');</script>";
 }
 ?>
 
@@ -20,9 +23,6 @@ if (isset($_POST["submit"])) {
       <div class="card-body p-5">
         <h3 class="card-title text-center font-poppins fw-bold mb-2">Sign In</h3>
         <p class="text-center text-muted mb-4">Selamat datang kembali!</p>
-        <?php if (isset($error)) { ?>
-          <p style="color: red;">Username / Password salah!</p>
-        <?php } ?>
 
         <form method="post">
           <div class="mb-3">
