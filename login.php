@@ -9,15 +9,12 @@ if (isLogged()) {
 }
 
 var_dump(isLogged());
-if (isset($_POST["login"])) {
+if (isset($_POST["submit"])) {
   $result = login($_POST);
   if ($result) {
-    } if (isAdmin()) {
-      header("Location:admin/index.php");
-    } else {
-      header("Location:index.php");
-    }
+    header("Location:index.php");
   }
+}
 
 
 include(__DIR__ . "/templates/header.php");
