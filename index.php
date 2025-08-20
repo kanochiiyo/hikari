@@ -7,30 +7,43 @@ require_once(__DIR__ . "/functions/authentication.php");
 ?>
 
 <main>
-  <section class="hero" id="hero" data-aos="fade-right">
+  <section class="hero" id="hero">
     <div class="container d-flex flex-column justify-content-center text-start text-white">
-      <h5 class="font-montserrat">HIKARI TRAVEL</h5>
-      <h1 class="headline display-4 fw-bold font-poppins">Temukan Cahaya Baru di Jepang</h1>
-      <h3 class="lead font-montserrat">Jelajahi keindahan otentik, dari kota modern hingga kuil kuno bersama kami.</h3>
+      <h5 class="font-montserrat" data-aos="fade-up">HIKARI TRAVEL</h5>
+      <h1 class="headline display-4 fw-bold font-poppins" data-aos="fade-up" data-aos-delay="200">Temukan Cahaya Baru di
+        Jepang</h1>
+      <h3 class="lead font-montserrat" data-aos="fade-up" data-aos-delay="400">Jelajahi keindahan otentik, dari kota
+        modern hingga kuil kuno bersama kami.</h3>
     </div>
   </section>
-  <section class="profile" id="profile" data-aos="fade-left">
-    <div class="container-fluid p-5">
-      <div class="row g-4 m-5">
-        <div class="col-6 d-flex">
+
+  <section class="profile py-5" id="profile">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-6 d-flex" data-aos="fade-right">
           <div class="d-flex flex-column me-3" style="flex: 1;">
-            <div class="bg-secondary mb-3 rounded" style="height:180px;"></div>
-            <div class="bg-secondary mb-3 rounded" style="height:180px;"></div>
+            <div class="gallery-container mb-3">
+              <img src="assets/kyoto.jpg" alt="Jalanan di Kyoto">
+            </div>
+            <div class="gallery-container mb-3">
+              <img src="assets/osaka.png" alt="Dotonbori Osaka">
+            </div>
             <div class="d-flex justify-content-between">
-              <div class="bg-secondary rounded" style="height:180px; width:48%;"></div>
-              <div class="bg-secondary rounded" style="height:180px; width:48%;"></div>
+              <div class="gallery-container-small">
+                <img src="assets/sapporo.png" alt="Salju di Sapporo">
+              </div>
+              <div class="gallery-container-small">
+                <img src="assets/package-4.png" alt="Hutan Bambu Arashiyama">
+              </div>
             </div>
           </div>
-          <div class="bg-secondary rounded" style="flex: 1; height:580px;"></div>
+          <div class="gallery-container-large" style="flex: 1;">
+            <img src="assets/yamanashi.jpg" alt="Pemandangan Gunung Fuji">
+          </div>
         </div>
 
-        <div class="col-6 d-flex align-items-center">
-          <div class="ps-5">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+          <div class="ps-lg-5">
             <h6 class="font-montserrat fw-semibold mb-2" style="color: #e5b84b">TENTANG KAMI →</h6>
             <h2 class="display-4 fw-bold font-poppins mb-3">
               Merancang Perjalanan, <br>
@@ -41,15 +54,16 @@ require_once(__DIR__ . "/functions/authentication.php");
               membantu Anda merangkai setiap babnya, dari menemukan kuliner tersembunyi hingga merasakan ketenangan kuil
               kuno.
             </p>
-            <a href="#contact" class="btn btn-primary my-3">Selengkapnya</a>
+            <a href="about.php" class="btn btn-primary my-3">Selengkapnya</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="products bg-light" id="products" data-aos="fade-right">
+
+  <section class="products py-5 bg-light" id="products">
     <div class="container">
-      <div class="row mb-4 text-center">
+      <div class="row mb-4 text-center" data-aos="fade-up">
         <div class="col">
           <h5 class="font-montserrat text-sec fw-semibold">PAKET TOUR</h5>
           <h2 class="display-6 fw-bold font-poppins">Pilih Petualangan Anda Berikutnya</h2>
@@ -83,8 +97,8 @@ require_once(__DIR__ . "/functions/authentication.php");
       ?>
 
       <div class="row g-4">
-        <?php foreach ($packages as $pkg): ?>
-          <div class="col-4">
+        <?php foreach ($packages as $index => $pkg): ?>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="<?= $index * 100 ?>">
             <div class="card product-card h-100 shadow-sm border-0">
               <div class="product-card-img-container">
                 <img src="<?= $pkg['gambar'] ?>" class="card-img-top" alt="<?= $pkg['judul'] ?>">
@@ -124,19 +138,19 @@ require_once(__DIR__ . "/functions/authentication.php");
     ["gambar" => "assets/package-4.png", "alt" => "Hutan Bambu Arashiyama"]
   ];
   ?>
-  <section class="gallery-grid py-5" id="gallery-grid" data-aos="fade-left">
+  <section class="gallery-grid py-5" id="gallery-grid">
     <div class="container">
-      <div class="row mb-4 text-center">
+      <div class="row mb-4 text-center" data-aos="fade-up">
         <div class="col">
           <h2 class="display-6 fw-bold font-poppins">Galeri Perjalanan</h2>
         </div>
       </div>
       <?php if (isLogged()) { ?>
-        <button type="submit" class="btn btn-primary my-3">Unggah Gambar</button>
+        <button type="submit" class="btn btn-primary my-3" data-aos="fade-up" data-aos-delay="100">Unggah Gambar</button>
       <?php } ?>
       <div class="row g-3">
-        <?php foreach ($gallery as $img): ?>
-          <div class="col-3">
+        <?php foreach ($gallery as $index => $img): ?>
+          <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="<?= ($index % 4) * 100 ?>">
             <img src="<?= $img['gambar'] ?>" alt="<?= $img['alt'] ?>" class="img-fluid gallery-grid-img rounded">
           </div>
         <?php endforeach; ?>
@@ -144,7 +158,6 @@ require_once(__DIR__ . "/functions/authentication.php");
     </div>
   </section>
 
-  <!-- Testimonials -->
   <?php
   $testimonials = [
     [
@@ -171,9 +184,9 @@ require_once(__DIR__ . "/functions/authentication.php");
   ];
   ?>
 
-  <section class="testimonials py-5" id="testimonials" data-aos="fade-up">
+  <section class="testimonials py-5" id="testimonials">
     <div class="container">
-      <div class="row mb-5 text-center">
+      <div class="row mb-5 text-center" data-aos="fade-up">
         <div class="col">
           <h5 class="font-montserrat text-sec fw-semibold">TESTIMONI</h5>
           <h2 class="display-6 fw-bold font-poppins">Apa Kata Klien Kami</h2>
@@ -181,8 +194,8 @@ require_once(__DIR__ . "/functions/authentication.php");
       </div>
 
       <div class="row g-4">
-        <?php foreach ($testimonials as $testimonial): ?>
-          <div class="col-4">
+        <?php foreach ($testimonials as $index => $testimonial): ?>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="<?= $index * 100 ?>">
             <div class="card testimonial-card h-100 border-0 shadow-sm">
               <div class="card-body text-center p-4">
                 <img src="<?= $testimonial['foto'] ?>" alt="Foto <?= $testimonial['nama'] ?>"
@@ -204,13 +217,10 @@ require_once(__DIR__ . "/functions/authentication.php");
       </div>
     </div>
   </section>
-  <!-- End Testimonials -->
-
-  <!-- Contact -->
-  <section class="contact py-5 bg-light" id="contact" data-aos="fade-up">
+  <section class="contact py-5 bg-light" id="contact">
     <div class="container">
       <div class="row align-items-center g-5">
-        <div class="col-6">
+        <div class="col-lg-6" data-aos="fade-right">
           <h2 class="display-6 fw-bold font-poppins">We're here to help</h2>
           <p class="font-montserrat text-secondary mb-4">Our dedicated team is ready to support you.</p>
 
@@ -218,20 +228,20 @@ require_once(__DIR__ . "/functions/authentication.php");
             <div class="row">
               <div class="col-6 mb-3">
                 <label for="firstName" class="form-label small">First name</label>
-                <input type="text" class="form-control" id="firstName" data-aos="fade-up">
+                <input type="text" class="form-control" id="firstName">
               </div>
               <div class="col-6 mb-3">
                 <label for="lastName" class="form-label small">Last name</label>
-                <input type="text" class="form-control" id="lastName" data-aos="fade-up">
+                <input type="text" class="form-control" id="lastName">
               </div>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label small">Email</label>
-              <input type="email" class="form-control" id="email" data-aos="fade-up">
+              <input type="email" class="form-control" id="email">
             </div>
             <div class="mb-3">
               <label for="topic" class="form-label small">Choose a topic</label>
-              <select class="form-select" id="topic" data-aos="fade-up">
+              <select class="form-select" id="topic">
                 <option selected>Select from list</option>
                 <option value="1">Paket Wisata</option>
                 <option value="2">Itinerary Kustom</option>
@@ -240,10 +250,10 @@ require_once(__DIR__ . "/functions/authentication.php");
             </div>
             <div class="mb-3">
               <label for="message" class="form-label small">Message <span class="text-muted">(optional)</span></label>
-              <textarea class="form-control" id="message" rows="4"></textarea data-aos="fade-up">
+              <textarea class="form-control" id="message" rows="4"></textarea>
             </div>
             <div class="form-check mb-4">
-              <input class="form-check-input" type="checkbox" value="" id="privacyCheck" data-aos="fade-up">
+              <input class="form-check-input" type="checkbox" value="" id="privacyCheck">
               <label class="form-check-label small" for="privacyCheck">
                 By checking this, you agree to our privacy policy.
               </label>
@@ -254,16 +264,14 @@ require_once(__DIR__ . "/functions/authentication.php");
           </form>
         </div>
 
-        <div class="col-6">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
           <div class="contact-image-container rounded shadow-lg">
-
           </div>
         </div>
 
       </div>
     </div>
   </section>
-  <!-- End Contact -->
 </main>
 
 

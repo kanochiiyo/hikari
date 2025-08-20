@@ -9,6 +9,41 @@ function isLogged()
   return false;
 }
 
+function register($formData)
+{
+  $connection = getConnection();
+
+  //   $name = $formData["name"];
+  $username = strtolower(stripslashes($formData["username"]));
+  $email = strtolower($formData["email"]);
+  $password = mysqli_real_escape_string($connection, $formData["password"]);
+  $confirmpassword = mysqli_real_escape_string($connection, $formData["confirmpassword"]);
+
+  // cek udah ada yg make belom usernamenya
+  $result = $connection->query("SELECT username FROM users WHERE username = '$username'");
+  if ($result->fetch_assoc()) {
+    echo "<script>
+    alert('Login gagal. Username tidak tersedia.');
+    </script>";
+    return false;
+  }
+
+  // kalo password & confirm nggak sama
+  if ($password != $confirmpassword) {
+    echo "<script>
+    alert('Login gagal. Password salah!');
+    </script>";
+    return false;
+  }
+
+  // enkripsi password pake password hash
+  $password = password_hash($password, PASSWORD_DEFAULT);
+
+  $connection->query("INSERT INTO users VALUES (null, '$username', '$email', '$password', 0)");
+
+  return ($connection->affected_rows) ? true : false;
+}
+
 function login($data)
 {
   $mysql = getConnection();
