@@ -2,10 +2,10 @@
 session_start();
 include(__DIR__ . "/templates/header.php");
 include(__DIR__ . "/templates/navbar.php");
-require_once(__DIR__ . "/functions.authentication.php");
+require_once(__DIR__ . "/functions/authentication.php");
 
-if (isLogged()) {
-  header("Location:login.php");
+if (!isLogged()) {
+  header("Location: login.php");
   exit();
 }
 
@@ -116,7 +116,7 @@ if (isLogged()) {
     </div>
   </section>
 
-  
+
   <?php
   $gallery = [
     ["gambar" => "assets/yamanashi.jpg", "alt" => "Pemandangan Gunung Fuji"],

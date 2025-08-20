@@ -1,31 +1,24 @@
 <?php
 session_start();
 require_once(__DIR__ . "/functions/connection.php");
-$mysql = getConnection();
+require_once(__DIR__ . "/functions/authentication.php");
 
-if (isset($_SESSION["login"])) {
+if (isLogged()) {
   header("Location:index.php");
   exit();
 }
 
-if (isset($_POST["submit"])) {
-  $username = $_POST["username"];
-  $password = $_POST["password"];
-
-  $result = mysqli_query($mysql, "SELECT * FROM users WHERE username = '$username'");
-
-  if (mysqli_num_rows($result) === 1) {
-    $row = mysqli_fetch_assoc($result);
-    if ($row["password"] == $password) {
-      $_SESSION["login"] = true;
-      $_SESSION["user"] = $username;
-
-      header("Location: index.php");
-      exit;
+var_dump(isLogged());
+if (isset($_POST["login"])) {
+  $result = login($_POST);
+  if ($result) {
+    } if (isAdmin()) {
+      header("Location:admin/index.php");
+    } else {
+      header("Location:index.php");
     }
   }
-  $error = true;
-}
+
 
 include(__DIR__ . "/templates/header.php");
 ?>

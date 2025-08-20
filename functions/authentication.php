@@ -9,6 +9,35 @@ function isLogged()
   return false;
 }
 
+function login($data)
+{
+  if (isset($_POST["submit"])) {
+    $mysql = getConnection();
+    $username = strtolower(mysqli_real_escape_string($mysql, $data["username"]));
+    $password = $data["password"];
+
+    $result = mysqli_query($mysql, "SELECT * FROM users WHERE username = '$username'");
+
+    if (mysqli_num_rows($result) === 1) {
+      $row = mysqli_fetch_assoc($result);
+      if ($row["password"] == $password) { 
+        $_SESSION["login"] = true;
+        $_SESSION["user"] = $username;
+        header("Location: index.php");
+        exit;
+      }
+    }
+    $error = true;
+
+    if (password_verify($password, $row["password"])) { 
+      $_SESSION["login"] = true;
+      $_SESSION["user"] = $username;
+      header("Location: index.php");
+      exit;
+    }
+  }
+}
+
 function isAdmin()
 {
   $connection = getConnection();
@@ -47,7 +76,9 @@ function isStaff()
 
 function logout(): void
 {
+  $_SESSION = [];
   session_destroy();
+  session_unset();
 }
 
 ?>

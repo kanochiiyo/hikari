@@ -28,6 +28,20 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         </li>
       </ul>
     </div>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Artikel
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#"></a></li>
+        <li><a class="dropdown-item" href="#"></a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Selengkapnya...</a></li>
+      </ul>
+    </li>
     <?php if (isLogged()) { ?>
       <a class="navbar-brand text-decoration-none font-montserrat text-white" href="logout.php">Logout</a>
     <?php } else { ?>
