@@ -19,7 +19,7 @@ function login($data)
 
   if (mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
-  
+
     if ($row["password"] == $password) {
       $_SESSION["login"] = true;
       $_SESSION["user"] = $username;

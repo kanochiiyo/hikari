@@ -3,21 +3,14 @@ session_start();
 require_once(__DIR__ . "/functions/connection.php");
 require_once(__DIR__ . "/functions/authentication.php");
 
-if (isLogged()) {
-  header("Location:index.php");
-  exit();
-}
+include(__DIR__ . "/templates/header.php");
 
-var_dump(isLogged());
 if (isset($_POST["submit"])) {
   $result = login($_POST);
   if ($result) {
     header("Location:index.php");
   }
 }
-
-
-include(__DIR__ . "/templates/header.php");
 ?>
 
 <main>

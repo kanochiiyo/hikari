@@ -4,11 +4,6 @@ include(__DIR__ . "/templates/header.php");
 include(__DIR__ . "/templates/navbar.php");
 require_once(__DIR__ . "/functions/authentication.php");
 
-if (!isLogged()) {
-  header("Location: login.php");
-  exit();
-}
-
 ?>
 
 <main>
@@ -46,7 +41,7 @@ if (!isLogged()) {
               membantu Anda merangkai setiap babnya, dari menemukan kuliner tersembunyi hingga merasakan ketenangan kuil
               kuno.
             </p>
-            <a href="#contact" class="btn btn-dark btn-lg px-4">Selengkapnya</a>
+            <a href="#contact" class="btn btn-primary my-3">Selengkapnya</a>
           </div>
         </div>
       </div>
@@ -136,6 +131,9 @@ if (!isLogged()) {
           <h2 class="display-6 fw-bold font-poppins">Galeri Perjalanan</h2>
         </div>
       </div>
+      <?php if (isLogged()) { ?>
+        <button type="submit" class="btn btn-primary my-3">Unggah Gambar</button>
+      <?php } ?>
       <div class="row g-3">
         <?php foreach ($gallery as $img): ?>
           <div class="col-3">
@@ -216,7 +214,7 @@ if (!isLogged()) {
           <h2 class="display-6 fw-bold font-poppins">We're here to help</h2>
           <p class="font-montserrat text-secondary mb-4">Our dedicated team is ready to support you.</p>
 
-          <form>
+          <form class="font-montserrat">
             <div class="row">
               <div class="col-6 mb-3">
                 <label for="firstName" class="form-label small">First name</label>
